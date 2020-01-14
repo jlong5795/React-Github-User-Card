@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import UserCard from './components/UserCard';
+import UserList from './components/UserList';
 
 import './App.css';
 
@@ -12,6 +13,21 @@ class App extends React.Component {
   componentDidMount() {
     axios
       .get('https://api.github.com/users/jlong5795')
+      .then(response => {
+        console.log('Initial load', response.data);
+        this.setState({
+          user: response.data
+        });
+      })
+      .catch(error => {
+        console.log('Error', error);
+      });
+  }
+
+  fetchFollowers = e => {
+    e.preventDefault();
+    axios
+      .get('https://api.github.com/users/jlong5795/followers')
       .then(response => {
         console.log(response.data);
         this.setState({
@@ -38,6 +54,7 @@ class App extends React.Component {
             bio={this.state.user.bio}
           />
         </div>
+        <UserList />
         
       </div>
     );
