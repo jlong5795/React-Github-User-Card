@@ -1,17 +1,17 @@
 import React from 'react';
 
-const UserCard = () => {
+const UserCard = props => {
     return (
-        <div class="card">
-            <img src={props.avatar_url} />
-            <div class="card-info">
-                <h3 class="name">{props.name}</h3>
-                <p class="username">{props.login}</p>
+        <div className="card">
+            <img src={props.avatar_url} alt={`${props.name}`}/>
+            <div className="card-info">
+                <h3 className="name">{props.name}</h3>
+                <p className="username">{props.login}</p>
                 <p>Location: {props.location}</p>
-                <p>Profile:  
+                <p>Profile:   
                 <a href={`${props.html_url}`}>{props.html_url}</a>
                 </p>
-                <p>Followers: {props.follwers}</p>
+                <p>Followers: {props.followers}</p>
                 <p>Following: {props.following}</p>
                 <p>Bio: {props.bio}</p>
             </div>
