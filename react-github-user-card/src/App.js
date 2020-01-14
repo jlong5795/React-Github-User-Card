@@ -41,8 +41,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <div className='your-card'>
+      <div className="App container">
+        
           <UserCard 
             avatar_url={this.state.user.avatar_url}
             name={this.state.user.name}
@@ -53,7 +53,7 @@ class App extends React.Component {
             following={this.state.user.following}
             bio={this.state.user.bio}
           />
-        </div>
+        
         <UserList />
         
       </div>
